@@ -158,8 +158,8 @@ def main():
 
     # st.write(bot_template.replace("{{MSG}}", "hello human"), unsafe_allow_html=True)
 
-    st.markdown('Click on **"Process"** to begin or restart the conversation')
-    if st.button("Process"): # Becomes true when the user clicks
+    st.markdown('Click on **"start|restart"** to begin or restart the conversation')
+    if st.button("start|restart"): # Becomes true when the user clicks
         with st.spinner("Processing"):
             docsearch = get_vectorstore()
 
