@@ -164,6 +164,7 @@ def main():
             # Conversation chain
             st.session_state.conversation = get_conversation_chain(docsearch)
 
+    st.markdown('Click on **"start|restart"** to begin or restart the conversation')
     # st.write(st.session_state)
     
 if __name__ == "__main__":
