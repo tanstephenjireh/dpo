@@ -140,9 +140,7 @@ def handle_userinput(user_question):
                 st.markdown(message.content)
 
 def main():
-    st.set_page_config(page_title="Chat with Data Privacy Laws", page_icon=":books:")
-
-    st.markdown('Trained with '+'***Republic Act 10173 - Data Privacy Act of 2012***')
+    st.set_page_config(page_title="Chat with Data Privacy Act of 2012", page_icon=":books:")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
