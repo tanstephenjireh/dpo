@@ -148,7 +148,7 @@ def main():
     if "chat_history" not in st.session_state: 
         st.session_state.chat_history = None
 
-    st.header('Chat with Data Privacy Laws :books:')
+    st.header('Chat with Data Privacy Act of 2012 :books:')
     
     user_question = st.chat_input('Ask a question about data privacy laws')
     if user_question:
