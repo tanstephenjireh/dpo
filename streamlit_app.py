@@ -118,7 +118,7 @@ def get_conversation_chain(vectorstore):
     combine_docs_chain_kwargs = {"prompt": few_shot_prompt_template}
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
-        retriever=vectorstore.as_retriever(),
+        retriever=vectorstore.as_retriever(search_kwargs={"k": 5}),
         combine_docs_chain_kwargs=combine_docs_chain_kwargs,
         memory=memory
     )
@@ -142,6 +142,8 @@ def handle_userinput(user_question):
 def main():
     st.set_page_config(page_title="Chat with Data Privacy Laws", page_icon=":books:")
 
+    st.markdown('Trained with '+'***Republic Act 10173 - Data Privacy Act of 2012***')
+
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
 
@@ -155,7 +157,8 @@ def main():
         handle_userinput(user_question)
 
     # st.write(bot_template.replace("{{MSG}}", "hello human"), unsafe_allow_html=True)
-    
+
+    st.markdown('Click on **"Process"** to begin or restart the conversation')
     if st.button("Process"): # Becomes true when the user clicks
         with st.spinner("Processing"):
             docsearch = get_vectorstore()
